@@ -7,6 +7,16 @@ const { log } = require('console');
 // Middleware
 app.use(express.urlencoded({extended:false}));
 
+// app.use((req,res,next)=>{
+//     console.log("Hello from middleware");   
+//     // return res.json({msg:"Hello from middleware"})
+//     next();
+// });
+// app.use((req,res,next)=>{
+//     console.log("Another middleware");
+//     return res.end('Hello from another middleware');
+// });
+
 // Routes
 app.route('/api/users').get((req,res)=>{
     return res.json(users);
@@ -22,9 +32,13 @@ app.route('/api/users').get((req,res)=>{
         }
         return res.json({staus:"Sucessefully added",id:newUser.id});
     });
-})
-;
-n  
+}).patch((req,res)=>{
+    // TODO: Implement PATCH method to update a user
+    return res.status(501).send('Not Implemented');
+}).delete((req,res)=>{
+    // TODO: Implement DELETE method to delete a user
+    return res.status(501).send('Not Implemented');
+});  
 app.get('/users',(req,res)=>{
     const html=`
     <html>
@@ -42,6 +56,7 @@ app.get('/users',(req,res)=>{
     return res.send(html);
 });
 app.get('/api/users/:id',(req,res)=>{
+    res.setHeader('My Name:',"Lakshya Tripathi");
     const userId=parseInt(req.params.id,10);
     const user=users.find(u=>u.id===userId);
     if(!user){
