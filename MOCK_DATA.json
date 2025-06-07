@@ -8038,5 +8038,13 @@
     "gender": "Male",
     "job_title": "Software Developer",
     "id": 1005
+  },
+  {
+    "first_name": "Toshu",
+    "last_name": "Trivedi",
+    "gender": "Male",
+    "email": "tohsutrivedi9@gmail.com",
+    "job_title": "Student",
+    "id": 1006
   }
 ]
